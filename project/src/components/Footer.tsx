@@ -1,15 +1,16 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Footer: React.FC = () => {
+  const navigate = useNavigate();
   return (
     <footer className="bg-black pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row gap-8">
         {/* Left Side */}
         <div className="flex-1 flex flex-col gap-4 justify-start">
           {/* Email Signup */}
-          <form className="w-full max-w-xl mb-2">
+          <form className="w-full max-w-xl mb-2" onSubmit={e => { e.preventDefault(); navigate('/login'); }}>
             <div className="flex border border-white">
               <input
                 type="email"
