@@ -12,6 +12,7 @@ const eyes1 = 'https://res.cloudinary.com/dueddncka/image/upload/v1751504686/1_c
 const eyes2 = 'https://res.cloudinary.com/dueddncka/image/upload/v1751504688/2_jrcchd.png';
 const eyes3 = 'https://res.cloudinary.com/dueddncka/image/upload/v1751504963/3_wsjayy.png';
 const eyes4 = 'https://res.cloudinary.com/dueddncka/image/upload/v1751504962/4_gjpvdv.png';
+const eyes5 = 'https://res.cloudinary.com/dueddncka/image/upload/v1751883069/IMG_7631_vum1vp.png';
 // Fatebound - Cloudinary URLs
 const fate1 = 'https://res.cloudinary.com/dueddncka/image/upload/v1751505403/1_xn5lvc.png';
 const fate2 = 'https://res.cloudinary.com/dueddncka/image/upload/v1751505401/2_speddb.png';
@@ -24,18 +25,19 @@ const heaven1 = 'https://res.cloudinary.com/dueddncka/image/upload/v1751505831/1
 const heaven2 = 'https://res.cloudinary.com/dueddncka/image/upload/v1751505832/2_nc925z.png';
 const heaven3 = 'https://res.cloudinary.com/dueddncka/image/upload/v1751505872/3_dgy7xy.png';
 const heaven4 = 'https://res.cloudinary.com/dueddncka/image/upload/v1751505876/4_t5w7co.png';
-const heaven5 = 'https://res.cloudinary.com/dueddncka/image/upload/v1751505874/5_x1rwqd.png';
+const heaven5 = 'https://res.cloudinary.com/dueddncka/image/upload/v1751883060/IMG_7630_mijr5e.png';
 // Overwhelmed Tee - Cloudinary URLs
+const over1 = 'https://res.cloudinary.com/dueddncka/image/upload/v1751882541/2_qrzvvo.png';
 const over2 = 'https://res.cloudinary.com/dueddncka/image/upload/v1751506039/2_mqdpff.png';
 const over3 = 'https://res.cloudinary.com/dueddncka/image/upload/v1751506039/3_rrqzsn.png';
 const over4 = 'https://res.cloudinary.com/dueddncka/image/upload/v1751506043/4_etwajj.png';
-const over5jpg = 'https://res.cloudinary.com/dueddncka/image/upload/v1751506043/5_qgv8qk.jpg';
+const over5jpg = 'https://res.cloudinary.com/dueddncka/image/upload/v1751882450/1_rjhxhj.png';
 
 const cartPageImages: Record<number, string[]> = {
-  1: [eyes1, eyes2, eyes3, eyes4], // Eyes on Fire
+  1: [eyes1, eyes2, eyes3, eyes4, eyes5], // Eyes on Fire
   2: [fate1, fate2, fate3, fate4, fate5, fate6], // Fatebound
   3: [heaven1, heaven2, heaven3, heaven4, heaven5], // Heaven last puff
-  4: [over2, over3, over4, over5jpg], // Overwhelmed Tee
+  4: [over1, over2, over3, over4, over5jpg], // Overwhelmed Tee
 };
 
 const ProductPage: React.FC = () => {
@@ -206,13 +208,13 @@ const ProductPage: React.FC = () => {
                   <button
                     key={size}
                     className={`px-4 py-2 border rounded-md text-black font-medium focus:outline-none transition-all ${
-                      !product.availableSizes.includes(size)
+                      product.availableSizes.indexOf(size) === -1
                         ? 'bg-gray-200 text-gray-400 line-through cursor-not-allowed'
                         : selectedSize === size
                           ? 'bg-black text-white border-black'
                           : 'bg-white hover:bg-gray-100 border-gray-300'
                     }`}
-                    disabled={!product.availableSizes.includes(size)}
+                    disabled={product.availableSizes.indexOf(size) === -1}
                     onClick={() => setSelectedSize(size)}
                   >
                     {size}
@@ -268,7 +270,18 @@ const ProductPage: React.FC = () => {
             {addToCartError && <div className="text-red-600 text-sm font-semibold mb-2">{addToCartError}</div>}
             {addToCartMessage && <div className="text-green-600 text-sm font-semibold mb-2">{addToCartMessage}</div>}
             <div className="text-gray-700 text-base mb-4">{product.lore}</div>
-            <button className="px-4 py-2 rounded-md border border-black text-black font-semibold hover:bg-gray-100 transition">READ LORE</button>
+            <button 
+              className="px-4 py-2 rounded-md border border-black text-black font-semibold hover:bg-gray-100 transition"
+              onClick={() => navigate('/about')}
+            >
+              READ LORE
+            </button>
+            <button 
+              className="px-4 py-2 rounded-md border border-black text-black font-semibold hover:bg-gray-100 transition mt-2"
+              onClick={() => navigate('/sizechart')}
+            >
+              SIZE CHART
+            </button>
           </div>
         </div>
       </section>

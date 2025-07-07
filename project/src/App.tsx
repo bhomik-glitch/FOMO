@@ -18,6 +18,7 @@ const ExchangeReturn = lazy(() => import('./components/ExchangeReturn'));
 const FAQ = lazy(() => import('./components/FAQ'));
 const Terms = lazy(() => import('./components/Terms'));
 const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'));
+const SizeChart = lazy(() => import('./components/SizeChart'));
 
 function App() {
   const location = useLocation();
@@ -30,8 +31,8 @@ function App() {
   ];
   const [popupVisible, setPopupVisible] = React.useState(false);
   const [popupMessage, setPopupMessage] = React.useState('');
-  const popupTimeoutRef = React.useRef<NodeJS.Timeout | null>(null);
-  const popupIntervalRef = React.useRef<NodeJS.Timeout | null>(null);
+  const popupTimeoutRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
+  const popupIntervalRef = React.useRef<ReturnType<typeof setTimeout> | null>(null);
   const [preloaderDone, setPreloaderDone] = React.useState(location.pathname !== '/');
 
   // Function to show popup with random product
@@ -51,8 +52,8 @@ function App() {
       showRandomPopup();
       // After first popup, schedule next popups at random intervals
       function scheduleNextPopup() {
-        const min = 2 * 60 * 1000; // 2 minutes
-        const max = 3 * 60 * 1000; // 3 minutes
+        const min = 15 * 60 * 1000; // 15 minutes
+        const max = 15 * 60 * 1000; // 15 minutes
         const delay = Math.floor(Math.random() * (max - min + 1)) + min;
         popupIntervalRef.current = setTimeout(() => {
           showRandomPopup();
@@ -111,6 +112,7 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/sizechart" element={<SizeChart />} />
         </Routes>
       </Suspense>
     </>

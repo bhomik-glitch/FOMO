@@ -66,16 +66,10 @@ const About: React.FC = () => {
           <div className="relative">
             <div className="relative rounded-2xl overflow-hidden">
               <img
-                src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src="https://res.cloudinary.com/dueddncka/image/upload/v1751881266/IMG_7385-min_v9b3by.png"
                 alt="FOMOO Brand"
-                className="w-full h-[500px] object-cover"
+                className="w-full max-w-md object-contain bg-white rounded-2xl"
               />
-              <div className="absolute inset-0 bg-gradient-to-tr from-black/20 to-white/20"></div>
-            </div>
-            
-            {/* Floating badge */}
-            <div className="absolute -top-4 -right-4 bg-white text-black px-6 py-3 rounded-full font-bold text-sm shadow-lg">
-              EST. 2024
             </div>
           </div>
         </div>

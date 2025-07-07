@@ -49,18 +49,18 @@ const Footer: React.FC = () => {
         {/* Right Side */}
         <div className="flex-[2] grid grid-cols-3 gap-8">
           <ul className="text-white text-sm space-y-2">
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/shop">Shop</Link></li>
-            <li><Link to="/about">About</Link></li>
+            <li><Link to="/" className="text-white">Home</Link></li>
+            <li><Link to="/shop" className="text-white">Shop</Link></li>
+            <li><Link to="/about" className="text-white">About</Link></li>
           </ul>
           <ul className="text-white text-sm space-y-2">
-            <li><Link to="/contact">Contact</Link></li>
-            <li><Link to="/exchange-return">Shipping & Return</Link></li>
-            <li><Link to="/faq">FAQ</Link></li>
+            <li><Link to="/contact" className="text-white">Contact</Link></li>
+            <li><Link to="/exchange-return" className="text-white">Shipping & Return</Link></li>
+            <li><Link to="/faq" className="text-white">FAQ</Link></li>
           </ul>
           <ul className="text-white text-sm space-y-2">
-            <li><Link to="/terms">Terms and Conditions</Link></li>
-            <li><Link to="/privacy">Privacy Policy</Link></li>
+            <li><Link to="/terms" className="text-white">Terms and Conditions</Link></li>
+            <li><Link to="/privacy" className="text-white">Privacy Policy</Link></li>
           </ul>
         </div>
       </div>
