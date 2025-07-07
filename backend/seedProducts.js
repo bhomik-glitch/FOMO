@@ -11,7 +11,7 @@ const products = [
       'https://res.cloudinary.com/dueddncka/image/upload/v1751504189/1-clearbg_ihcrv8.webp',
       'https://res.cloudinary.com/dueddncka/image/upload/v1751504189/2-clearbg_tgydbl.webp'
     ],
-    price: 89,
+    price: 799,
     category: 'Streetwear',
     stock: 100
   },
@@ -22,7 +22,7 @@ const products = [
       'https://res.cloudinary.com/dueddncka/image/upload/v1751504392/1-bgremove_aufmkt.webp',
       'https://res.cloudinary.com/dueddncka/image/upload/v1751504392/1-bgremove_aufmkt.webp'
     ],
-    price: 99,
+    price: 799,
     category: 'Streetwear',
     stock: 100
   },
@@ -33,7 +33,7 @@ const products = [
       'https://res.cloudinary.com/dueddncka/image/upload/v1751504477/2-bgremove_qxr10x.webp',
       'https://res.cloudinary.com/dueddncka/image/upload/v1751504476/1-bgremove_w1vsby.webp'
     ],
-    price: 59,
+    price: 799,
     category: 'Basics',
     stock: 100
   },
@@ -44,7 +44,7 @@ const products = [
       'https://res.cloudinary.com/dueddncka/image/upload/v1751504546/1-bgremove_qi1bb5.webp',
       'https://res.cloudinary.com/dueddncka/image/upload/v1751504547/2-bgremove_ojqvlo.webp'
     ],
-    price: 79,
+    price: 799,
     category: 'Streetwear',
     stock: 100
   }
