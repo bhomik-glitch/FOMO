@@ -113,6 +113,7 @@ function App() {
           <Route path="/terms" element={<Terms />} />
           <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/sizechart" element={<SizeChart />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </Suspense>
     </>
