@@ -18,12 +18,16 @@ export default function LoginSignup() {
   const [address, setAddress] = useState("");
   const navigate = useNavigate();
   const [success, setSuccess] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
+    setSuccess("");
+    setLoading(true);
     if (tab === "Signup" && password !== confirmPassword) {
       setError("Passwords do not match");
+      setLoading(false);
       return;
     }
     try {
@@ -39,17 +43,43 @@ export default function LoginSignup() {
       const data = await res.json();
       if (!res.ok) {
         setError(data.message || "Something went wrong");
+        setLoading(false);
         return;
       }
+      if (tab === "Signup") {
+        // After successful signup, automatically log the user in
+        setSuccess("Signup successful! Logging you in...");
+        const loginRes = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/auth/login`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ email, password }),
+        });
+        const loginData = await loginRes.json();
+        if (loginRes.ok && loginData.token) {
+          login(loginData.token);
+          setSuccess("Signup successful! Redirecting...");
+          setLoading(false);
+          setTimeout(() => {
+            navigate("/shop");
+          }, 1200);
+        } else {
+          setError(loginData.message || "Signup succeeded but login failed. Please login manually.");
+          setLoading(false);
+        }
+        return;
+      }
+      // Login flow
       if (data.token) {
         login(data.token);
-        setSuccess(tab === "Signup" ? "Signup successful! Redirecting..." : "Login successful! Redirecting...");
+        setSuccess("Login successful! Redirecting...");
+        setLoading(false);
         setTimeout(() => {
           navigate("/shop");
-        }, 1000);
+        }, 1200);
       }
     } catch (err) {
       setError("Network error");
+      setLoading(false);
     }
   };
 
@@ -118,8 +148,18 @@ export default function LoginSignup() {
           )}
           {error && <div className="text-red-600 text-sm font-semibold">{error}</div>}
           {success && <div className="text-green-600 text-sm font-semibold">{success}</div>}
-          <button type="submit" className="w-full py-3 rounded-lg bg-blue-600 text-white font-semibold text-lg shadow-input hover:bg-blue-700 transition-colors duration-200">
-            {tab === "Login" ? "Login" : "Sign Up"}
+          <button type="submit" className="w-full py-3 rounded-lg bg-blue-600 text-white font-semibold text-lg shadow-input hover:bg-blue-700 transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed" disabled={loading}>
+            {loading ? (
+              <span className="flex items-center justify-center">
+                <svg className="animate-spin h-5 w-5 mr-2 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+                </svg>
+                Loading...
+              </span>
+            ) : (
+              tab === "Login" ? "Login" : "Sign Up"
+            )}
           </button>
         </form>
       </div>
