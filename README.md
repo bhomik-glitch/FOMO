@@ -2,27 +2,6 @@
 
 FOMOO is more than just a clothing brand—it's a movement for self-expression, boldness, and attitude. This full-stack project powers the FOMOO e-commerce platform, letting users shop unique, oversized, and expressive streetwear, manage their carts, and experience a modern, interactive web store.
 
-## Table of Contents
-- [About FOMOO](#about-fomoo)
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Getting Started](#getting-started)
-  - [Backend Setup](#backend-setup)
-  - [Frontend Setup](#frontend-setup)
-- [Environment Variables](#environment-variables)
-- [Contact](#contact)
-
----
-
-## About FOMOO
-FOMOO stands for more than just Fear of Missing Out. It's about the fear of not expressing, of staying silent when your soul screams for color, chaos, and confidence.
-
-We started FOMOO with one purpose — to turn emotion into fabric and attitude into style. Every stitch, every drop, every oversized silhouette is built for those who feel too much, dream too big, and refuse to blend in.
-
-We're not just a clothing brand. We are a movement of the misunderstood, the misfits, the rebels, and the loud hearts. From gritty street vibes to raw emotion-packed drops, our pieces reflect the world we live in — messy, bold, unfiltered.
-
-**Don't miss out. Feel everything. Wear your world.**
-
 ---
 
 ## Features
