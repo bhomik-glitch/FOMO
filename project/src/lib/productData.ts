@@ -19,7 +19,7 @@ export const products: Product[] = [
       "https://res.cloudinary.com/dueddncka/image/upload/v1751504189/1-clearbg_ihcrv8.webp",
       "https://res.cloudinary.com/dueddncka/image/upload/v1751504189/2-clearbg_tgydbl.webp"
     ],
-    price: "$89 - $149",
+    price: "599",
     badge: "NEW",
     sizes: ["Small", "Medium", "Large", "Extra Large"],
     availableSizes: ["Small", "Medium", "Large", "Extra Large"],
@@ -33,7 +33,7 @@ export const products: Product[] = [
       "https://res.cloudinary.com/dueddncka/image/upload/v1751504392/1-bgremove_aufmkt.webp",
       "https://res.cloudinary.com/dueddncka/image/upload/v1751504392/2-bgremove_xwplus.webp"
     ],
-    price: "$99 - $189",
+    price: "599",
     sizes: ["Small", "Medium", "Large", "Extra Large"],
     availableSizes: ["Small", "Medium", "Large", "Extra Large"],
     lore: "Fatebound is for those who embrace the unknown. Its dark aesthetic is a tribute to the fearless and the bold."
@@ -46,7 +46,7 @@ export const products: Product[] = [
       "https://res.cloudinary.com/dueddncka/image/upload/v1751504477/2-bgremove_qxr10x.webp",
       "https://res.cloudinary.com/dueddncka/image/upload/v1751504476/1-bgremove_w1vsby.webp"
     ],
-    price: "$59 - $99",
+    price: "599",
     badge: "BESTSELLER",
     sizes: ["Small", "Medium", "Large", "Extra Large"],
     availableSizes: ["Small", "Medium", "Large", "Extra Large"],
@@ -60,7 +60,7 @@ export const products: Product[] = [
       "https://res.cloudinary.com/dueddncka/image/upload/v1751504546/1-bgremove_qi1bb5.webp",
       "https://res.cloudinary.com/dueddncka/image/upload/v1751504547/2-bgremove_ojqvlo.webp"
     ],
-    price: "$79 - $129",
+    price: "599",
     sizes: ["Small", "Medium", "Large", "Extra Large"],
     availableSizes: ["Small", "Medium", "Large", "Extra Large"],
     lore: "The Overwhelmed Tee is a fusion of future and street. Its design speaks to the constricted yet expressive energy of urban life."

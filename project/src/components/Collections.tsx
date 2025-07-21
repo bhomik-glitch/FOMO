@@ -1,18 +1,18 @@
 import React from 'react';
-import { ArrowRight, Star } from 'lucide-react';
+// import { ArrowRight, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { products } from '../lib/productData';
 import SkeletonCollections from './ui/SkeletonCollections';
 
-interface Collection {
-  id: number;
-  name: string;
-  description: string;
-  image1: string;
-  image2: string;
-  price: string;
-  badge?: string;
-}
+// interface Collection {
+//   id: number;
+//   name: string;
+//   description: string;
+//   image1: string;
+//   image2: string;
+//   price: string;
+//   badge?: string;
+// }
 
 const Collections: React.FC = () => {
   const collections = products;
@@ -64,7 +64,7 @@ const Collections: React.FC = () => {
 
           {/* Collections Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12">
-            {collections.map((collection, idx) => {
+            {collections.map((collection) => {
               const Card = (
                 <div
                   key={collection.id}
@@ -120,7 +120,7 @@ const Collections: React.FC = () => {
                         Buy Now
                       </span>
                       <span className="absolute left-0 top-0 w-full h-full flex items-center justify-center transition-transform duration-300 translate-x-full group-hover/button:translate-x-0 z-20">
-                        799 INR
+                        599 INR
                       </span>
                     </button>
                   </div>
