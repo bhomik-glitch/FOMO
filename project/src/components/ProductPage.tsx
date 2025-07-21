@@ -1,9 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { products } from '../lib/productData';
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useCart } from './CartContext';
-import { useAuth } from './AuthContext';
 import { useNavigate } from 'react-router-dom';
 import { useProducts } from './ProductContext';
 import SkeletonProductPage from './ui/SkeletonProductPage';
@@ -45,9 +44,8 @@ const ProductPage: React.FC = () => {
   const product = products.find(p => p.id === Number(id));
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const { addToCart, buyNow, refreshBackendCart } = useCart();
-  const { isLoggedIn, token } = useAuth();
   const navigate = useNavigate();
-  const { products: backendProducts, loading: productsLoading } = useProducts();
+  const { products: backendProducts } = useProducts();
   const [addToCartMessage, setAddToCartMessage] = useState<string | null>(null);
   const [addToCartError, setAddToCartError] = useState<string | null>(null);
   const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
@@ -56,10 +54,10 @@ const ProductPage: React.FC = () => {
   // Use cart page images for the current product by id
   const images = product ? cartPageImages[product.id] || [] : [];
   const [currentImg, setCurrentImg] = useState(0);
-  const controls = useAnimation();
   const sliderRef = useRef<HTMLDivElement>(null);
 
   // Drag/swipe logic
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleDragEnd = (event: any, info: any) => {
     const offset = info.offset.x;
     const velocity = info.velocity.x;
@@ -200,7 +198,7 @@ const ProductPage: React.FC = () => {
               <span className="mb-2 px-3 py-1 rounded-full text-xs font-bold bg-blue-100 text-blue-700">{product.badge}</span>
             )}
             <h1 className="text-4xl font-bold mb-2 text-black">{product.name}</h1>
-            <div className="text-2xl font-semibold mb-4 text-black">799 <span className="text-base font-normal text-gray-500">INR</span></div>
+            <div className="text-2xl font-semibold mb-4 text-black">599 <span className="text-base font-normal text-gray-500">INR</span></div>
             <div className="mb-4">
               <div className="font-semibold mb-2 text-black">Select Size</div>
               <div className="flex gap-4 flex-nowrap overflow-x-auto w-full gap-2 -mx-4 px-4">
@@ -235,7 +233,7 @@ const ProductPage: React.FC = () => {
                   addToCart({
                     id: backendProductId || '',
                     name: product.name,
-                    price: Number((product.price.match(/\d+/) || ['799'])[0]),
+                    price: Number((product.price.match(/\d+/) || ['599'])[0]),
                     size: selectedSize || '',
                     quantity: 1,
                   });
@@ -257,7 +255,7 @@ const ProductPage: React.FC = () => {
                   buyNow({
                     id: backendProductId || '',
                     name: product.name,
-                    price: Number((product.price.match(/\d+/) || ['799'])[0]),
+                    price: Number((product.price.match(/\d+/) || ['599'])[0]),
                     size: selectedSize || '',
                     quantity: 1,
                   });
